@@ -1,0 +1,24 @@
+# 企业微信机器人key
+# 使用企业微信时必须配置，不使用则留空
+qywechatKey:
+
+# 飞书机器人key
+# 使用飞书时必须配置，不使用则留空
+feishuKey:
+
+# 钉钉机器人key
+# 使用钉钉时必须配置，不使用则留
+dingdingKey:
+
+# Redis配置
+redisServer: 127.0.0.1  # 必须配置
+redisPort:  # 可选项，为空默认为6379
+redisPassword: # redis未设置密码则留空，如果设置了密码登陆则必须配置
+
+# 日志配置
+logFileDir:   # 可选项，为空则为程序运行目录
+logFilePath: alertmanager-webhook.log # 必须配置
+
+# 服务监听配置
+port: 9095 # 可选项，为空则默认为9095
+host: 0.0.0.0 # 可选项，为空默认监听 127.0.0.1

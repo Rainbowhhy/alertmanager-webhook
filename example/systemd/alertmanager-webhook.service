@@ -1,0 +1,15 @@
+[Unit]
+Description=Alertmanager Webhook service
+After=network.target
+
+[Service]
+Type=simple
+
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/usr/local/bin/alertmanager-webhook
+SuccessExitStatus=143
+TimeoutStopSec=1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

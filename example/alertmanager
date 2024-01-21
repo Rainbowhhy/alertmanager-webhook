@@ -1,0 +1,19 @@
+"alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "机器宕机监测",
+        "instance": "10.180.48.2",
+        "job": "node_exporter",
+        "site": "beijing",
+        "usage": "monitor"
+      },
+      "annotations": {
+        "description": "机器:10.180.48.2 所属 job:node_exporter 宕机超过1分钟，请检查！",
+        "summary": "机器发生宕机"
+      },
+      "startsAt": "2023-10-11T11:59:09.775Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "fingerprint": "02f13394997e5211"
+    }
+  ]
