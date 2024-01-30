@@ -25,7 +25,7 @@
 ```
 **2. docker启动**
 ```bash
-docker run -d --name redis -v /root/redis.conf:/etc/redis/redis.conf -p 0.0.0.0:6381:6379 redis:5.0.0 redis-
+docker run -d --name redis -v /root/redis.conf:/etc/redis/redis.conf -p 0.0.0.0:6379:6379 redis:5.0.0 redis-
 server /etc/redis/redis.conf
 docker run --name alertmanager-webhook -p 0.0.0.0:9095:9095-v ./alertmanager-webhook.yaml:/etc/alertmanager-webhook alertmanager-webhook:v1.0
 ```
