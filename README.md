@@ -25,9 +25,12 @@
 ```
 **2. docker启动**
 ```bash
-docker run -d --name redis -v /root/redis.conf:/etc/redis/redis.conf -p 0.0.0.0:6379:6379 redis:5.0.0 redis-
-server /etc/redis/redis.conf
-docker run --name alertmanager-webhook -p 0.0.0.0:9095:9095-v ./alertmanager-webhook.yaml:/etc/alertmanager-webhook alertmanager-webhook:v1.0
+docker run -d --name redis -v /root/redis.conf:/etc/redis/redis.conf -p 0.0.0.0:6379:6379 redis:5.0.0 redis-server /etc/redis/redis.conf
+docker run -d --name alertmanager-webhook -p 0.0.0.0:9095:9095 -v /root/alertmanager-webhook.yaml:/etc/alertmanager-webhook/alertmanager-webhook.yaml alertmanager-webhook:v1.0
+```
+**3. 模板修改**
+```text
+如果要修改告警模板，则需要编辑template/alert.tmpl，可以参照example中的模板来修改，docker启动则使用-v挂载，比如-v /root/dingding.tmpl:/data/alertmanager-webhook/template/alert.tmpl
 ```
 
 ## 告警配置
