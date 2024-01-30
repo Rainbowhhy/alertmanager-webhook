@@ -13,7 +13,7 @@ dingdingKey:
 # Redis配置
 redisServer: 127.0.0.1  # 必须配置
 redisPort:  # 可选项，为空默认为6379
-redisPassword: # redis未设置密码则留空，如果设置了密码登陆则必须配置
+redisPassword: wecloudsre@2023 # redis未设置密码则留空，如果设置了密码登陆则必须配置
 
 # 日志配置
 logFileDir:   # 可选项，为空则为程序运行目录

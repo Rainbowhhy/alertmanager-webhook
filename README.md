@@ -1,11 +1,11 @@
 # alertmanager-webhook
 
-## 说明
+## 项目说明
 ```
-一个用于alertmanager转发告警信息到指定平台的webhook，适用于使用alertmanager作为告警工具的运维或者开发人员。
+一个用于alertmanager转发告警信息到指定平台的webhook，适用于使用alertmanager作为告警工具的运维或者开发人员，也适用于自行开发告警平台的开发人员，告警信息转换成alertmanager的json告警格式即可。
 ```
 
-## 特性
+## 功能特性
 ```
 1. 支持自定义告警模板
 2. 支持对接企业微信机器人
@@ -14,25 +14,28 @@
 ```
 
 
-## 用法
+## 使用用法
 **项目依赖redis，需要先启动redis**
+
+**1. 二进制启动**
+
+下载二进制文件，修改 alertmanager-webhook.yaml
 ```bash
-./bin/alertmanager-webhook -c alertmanager-webhook.yaml
+./alertmanager-webhook -c alertmanager-webhook.yaml
 ```
+**2. docker启动**
 ```bash
-# docker 启动
 docker run -d --name redis -v /root/redis.conf:/etc/redis/redis.conf -p 0.0.0.0:6381:6379 redis:5.0.0 redis-
 server /etc/redis/redis.conf
-docker run --name alertmanager-webhook -p 0.0.0.0:9095:9095-v ./alertmanager-webhook.yaml:/etc/alertmanager-webhook alertmanager-webhook
-
+docker run --name alertmanager-webhook -p 0.0.0.0:9095:9095-v ./alertmanager-webhook.yaml:/etc/alertmanager-webhook alertmanager-webhook:v1.0
 ```
 
-## 配置
+## 告警配置
 
-alertmanager.yml
-
+alertmanager中配置webhook
 
 ```yaml
+# alertmanager.yml
 ......
 
 receivers:
@@ -48,7 +51,9 @@ receivers:
 ......
 ```
 
-## 示例
+## 使用示例
+**使用curl模仿alertmanager往webhook发送消息**
+
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '
 {"alerts": [
@@ -74,7 +79,7 @@ curl -X POST -H "Content-Type: application/json" -d '
 # 注意<qywechat|feishu|dingding> 从中选择一个，比如企业微信就是：127.0.0.1:9095/qywechat
 ```
 
-## 效果
+## 实现效果
 **企业微信告警效果**
 
 ![img](./example/image/qywechat.jpg)
