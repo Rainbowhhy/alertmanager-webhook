@@ -10,7 +10,7 @@
 1. 支持自定义告警模板
 2. 支持对接企业微信机器人
 3. 支持对接飞书机器人
-4. 支持对接钉钉
+4. 支持对接钉钉机器人
 ```
 
 
@@ -58,7 +58,7 @@ receivers:
 curl -X POST -H "Content-Type: application/json" -d '
 {"alerts": [
     {
-      "status": "resolved",
+      "status": "firing|resolved",
       "labels": {
         "alertname": "机器宕机监测",
         "instance": "10.180.48.2",
@@ -76,7 +76,7 @@ curl -X POST -H "Content-Type: application/json" -d '
   ]
 }' 127.0.0.1:9095/<qywechat|feishu|dingding>
 
-# 注意<qywechat|feishu|dingding> 从中选择一个，比如企业微信就是：127.0.0.1:9095/qywechat
+# 注意firing|resolved选择一个，触发告警选择firing，告警恢复选择resolved；<qywechat|feishu|dingding> 从中选择一个，比如企业微信就是：127.0.0.1:9095/qywechat
 ```
 
 ## 实现效果
